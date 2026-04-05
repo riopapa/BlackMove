@@ -25,7 +25,6 @@ public class PermissionNotUsed extends AppCompatActivity {
         }
 
         String notificationListenerString = Settings.Secure.getString(activity.getContentResolver(),"enabled_notification_listeners");
-//Check notifications access permission
         if (notificationListenerString == null || !notificationListenerString.contains(activity.getPackageName())) {
             requestPermission(activity);
         }
