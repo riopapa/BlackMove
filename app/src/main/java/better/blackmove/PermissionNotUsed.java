@@ -18,7 +18,7 @@ public class PermissionNotUsed extends AppCompatActivity {
     private static final int MULTIPLE_PERMISSION = 10236;
 
 
-    public static void ask_NOT_USED(Activity activity, Context context, PackageInfo info) {
+    public static void ask_NEVER_USED(Activity activity, Context context, PackageInfo info) {
         String [] permissions = info.requestedPermissions;
         if (!hasPermissions(context, permissions)) {
             ActivityCompat.requestPermissions(activity, permissions, MULTIPLE_PERMISSION);
