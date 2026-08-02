@@ -18,13 +18,13 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity
         implements GPSSpeedTracker.SpeedListener {
 
-    static int intSecs = 361;
+    static int intSecs = 241;
     String strSecs;
     private Chronometer chronometerCountDown;
     private GPSSpeedTracker gpsSpeedTracker;
     TextView speedTextView;
     int nowSpeed = 0;
-    int backSpeed = 55;
+    int backSpeed = 45;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity
 
         final ImageButton sUp = findViewById(R.id.speed_up);
         sUp.setOnClickListener(v -> {
-            backSpeed += 10;
+            backSpeed += 5;
             speedTextView.setText(""+backSpeed);
         });
 
         final ImageButton sDn = findViewById(R.id.speed_down);
         sDn.setOnClickListener(v -> {
-            backSpeed -= 10;
+            backSpeed -= 5;
             speedTextView.setText(""+backSpeed);
         });
     }
@@ -136,6 +136,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onSpeedUpdated(int speed) {
         if (speed != nowSpeed) {
+            TextView tv = findViewById(R.id.textSpeed);
+            tv.setText("$speed");
             nowSpeed = speed;
             if (nowSpeed > backSpeed)
                 return2BlackCam();
